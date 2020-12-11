@@ -1,0 +1,4 @@
+dist/*
+src/miniprogram_npm/*
+plop-templates/*
+src/oldUtils/*

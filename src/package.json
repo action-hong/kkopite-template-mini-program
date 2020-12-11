@@ -1,0 +1,19 @@
+{
+  "name": "bida_ble",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "@miniprogram-i18n/core": "^1.0.0-rc.11",
+    "@vant/weapp": "^1.5.2",
+    "md5": "^2.3.0",
+    "miniprogram-api-promise": "^1.0.4",
+    "miniprogram-computed": "^2.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

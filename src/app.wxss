@@ -1,0 +1,10 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  position: relative;
+}
+
+page {
+  height: 100%;
+}
+

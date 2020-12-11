@@ -1,0 +1,10 @@
+@import './styles/variables';
+
+view {
+  box-sizing: border-box;
+}
+
+// 微信的一些组件 不改变盒模型, 例如导航组件会有各种问题
+view[class^="weui"] {
+  box-sizing: initial;
+}

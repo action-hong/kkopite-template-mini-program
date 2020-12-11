@@ -1,0 +1,15 @@
+<!--index.wxml-->
+<view class="container">
+  <text>{{ t('hello') }}</text>
+  <van-button type="primary">按钮</van-button>
+  <view bindtap="toggleDatePicker">点我 选择日期 {{ showDate }}</view>
+  <van-popup show="{{ show }}"
+    position="bottom">
+    <van-datetime-picker
+      type="datetime"
+      bind:confirm="onDateConfirm"
+      bind:cancel="toggleDatePicker"
+      value="{{ currentDate }}"
+    />
+  </van-popup>
+</view>
