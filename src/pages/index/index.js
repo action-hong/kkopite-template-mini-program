@@ -1,5 +1,7 @@
 // index.js
 import { I18n } from '@miniprogram-i18n/core'
+import { storeBindingsBehavior } from 'mobx-miniprogram-bindings'
+import { store } from '../../store/index'
 import computedBehavior from 'miniprogram-computed'
 // 获取应用实例
 /**
@@ -8,11 +10,16 @@ import computedBehavior from 'miniprogram-computed'
 const app = getApp()
 
 Component({
-  behaviors: [I18n, computedBehavior],
+  behaviors: [I18n, storeBindingsBehavior, computedBehavior],
   data: {
     name: 'kkopite',
     show: false,
     currentDate: new Date().getTime()
+  },
+  storeBindings: {
+    store,
+    fields: [],
+    actions: []
   },
   methods: {
     onDateConfirm: function (date) {

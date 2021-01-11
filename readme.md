@@ -1,6 +1,6 @@
 # 介绍
 
-小程序的模板, 集成了`scss`, `i18n`, `computed`相关功能
+小程序的模板, 集成了`scss`, `i18n`, `computed`, `mobx`等相关功能
 
 采用了小程序提供的[i18拓展](https://developers.weixin.qq.com/miniprogram/dev/extended/utils/miniprogram-i18n/quickstart.html), 故需要对src目录下的文件进行编译才可以使用
 
@@ -69,6 +69,10 @@ PS: 当前并不支持监听src目录下删除文件, 自动同步到dist目录�
 
 PS: **你也可以完全不使用`scss`所提供的所有功能, 而是像过去写wxss文件一样写scss就行**
 
+#### 样式文件中使用url引入图片
+
+由于无法在`wxss`文件中直接使用本地图片, 故需要对源文件中的本地图片进行处理([`gulp-css-base64`](https://www.npmjs.com/package/gulp-css-base64)), 转换成`base64`形式(或者直接传到服务器上引入也可以)
+
 ### 快速生成Page 和 component
 
 ```
@@ -87,6 +91,17 @@ npm run new
 
 - 这里生成的page页面并未添加在`app.json`上, 需要手动添加
 - 这里生成的page采用[`Component`](https://developers.weixin.qq.com/miniprogram/dev/reference/api/Component.html)函数, 并默认添加好了[`computed`](https://developers.weixin.qq.com/miniprogram/dev/extended/utils/computed.html)、[`miniprogram-i18n`](https://developers.weixin.qq.com/miniprogram/dev/extended/utils/miniprogram-i18n/quickstart.html)这两个[`behavior`](https://developers.weixin.qq.com/miniprogram/dev/reference/api/Behavior.html), 方便开发
+- 使用了微信提供的`mobx`相关的[扩展库](https://developers.weixin.qq.com/miniprogram/dev/extended/utils/mobx.html), 统一管理所有相关状态(可以查看相关文档了解更多关于[`mobx`](https://mobx.js.org/README.html)的知识)
+
+### 关于分包
+
+由于用了几个`gif`图导致超过2m的限制, 故单独创建一个分包放置`home`页面相关的组件, 页面, gif, 起始如果有台服务器放这些图片就没这么麻烦了
+
+### 测试
+
+该项目使用了`jest`来做为单元测试的工具, 根据`test/utils/command.test.js`的格式编写相关的单元测试
+
+运行`npm run test`来单元测试
 
 ## TODO
 

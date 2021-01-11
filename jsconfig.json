@@ -1,6 +1,12 @@
 {
   "include": [
     "src/**/*",
+    "tests/**/*",
     "typings/**/*", "typings"
-  ]
+  ],
+  "typeAcquisition": {
+    "include": [
+      "jest"
+    ]
+  }
 }

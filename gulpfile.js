@@ -4,6 +4,7 @@ const gulpI18nLocales = require('@miniprogram-i18n/gulp-i18n-locales')
 const changed = require('gulp-changed')
 const sass = require('gulp-sass')
 const rename = require('gulp-rename')
+const cssBase64 = require('gulp-css-base64')
 
 function mergeAndGenerateLocales () {
   return src(['src/**/i18n/*.json', '!src/node_modules/**/i18n/*.json'])
@@ -25,6 +26,8 @@ function copyToDist () {
 
 function transpileSass () {
   return src(['src/**/*.scss', '!src/node_modules/**/*.scss'])
+    // 默认只处理大小为32KB以下的图片, 可自修修改参数允许更大的图片
+    .pipe(cssBase64())
     .pipe(sass({
       outputStyle: 'expanded'
     }))
@@ -56,10 +59,10 @@ function watchTask () {
       .pipe(dest('dist/'))
   })
   // 监听静态资源
-  watch('src/assets/**/*', { ignoreInitial: false }, function () {
-    return src('src/assets/**/*')
-      .pipe(changed('dist/assets/'))
-      .pipe(dest('dist/assets/'))
+  watch('src/**/*assets/**/*', { ignoreInitial: false }, function () {
+    return src('src/**/*assets/**/*')
+      .pipe(changed('dist/'))
+      .pipe(dest('dist/'))
   })
   // 监听scss
   watch(['src/**/*.scss', '!src/node_modules/**/*.scss'], { ignoreInitial: false }, function () {
