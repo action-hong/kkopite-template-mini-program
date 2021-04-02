@@ -8,26 +8,26 @@ module.exports = {
     }
   ],
   actions: data => {
-    const name = '{{name}}'
+    const name = '\{{name}}'
     const actions = [
       {
         type: 'add',
-        path: `src/components/${name}/index.js`,
+        path: `src/components/${name}/${name}.js`,
         templateFile: 'plop-templates/component/index.js',
       },
       {
         type: 'add',
-        path: `src/components/${name}/index.json`,
+        path: `src/components/${name}/${name}.json`,
         templateFile: 'plop-templates/component/index.json',
       },
       {
         type: 'add',
-        path: `src/components/${name}/index.wxml`,
+        path: `src/components/${name}/${name}.wxml`,
         templateFile: 'plop-templates/component/index.wxml',
       },
       {
         type: 'add',
-        path: `src/components/${name}/index.scss`,
+        path: `src/components/${name}/${name}.scss`,
         templateFile: 'plop-templates/component/index.scss',
       }
     ]
